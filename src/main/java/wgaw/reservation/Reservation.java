@@ -1,6 +1,8 @@
 package wgaw.reservation;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reservation {
     private final Equipment equipment;
@@ -21,6 +23,18 @@ public class Reservation {
         this.startTime = startTime;
         this.endTime = endTime;
         this.status = status;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
     public ReservationStatus getStatus() {
@@ -54,5 +68,32 @@ public class Reservation {
 
     public boolean isActive() {
         return status == ReservationStatus.ACTIVE;
+    }
+
+    public static boolean isEquipmentAvailable(Equipment equipment, LocalDateTime startTime, LocalDateTime endTime, List<Reservation> reservations) {
+        for (Reservation reservation : reservations) {
+            if (reservation.getEquipment().equals(equipment)) {
+                // checking if the time is matchingg with existing reservation
+                if ((startTime.isBefore(reservation.getEndTime()) && startTime.isAfter(reservation.getStartTime())) ||
+                        (endTime.isBefore(reservation.getEndTime()) && endTime.isAfter(reservation.getStartTime())) ||
+                        (startTime.isBefore(reservation.getStartTime()) && endTime.isAfter(reservation.getEndTime()))) {
+                    return false; // unfortunately equipment is already reserved these time
+                }
+
+            }
+        }
+        return true;
+    }
+
+    public static List<Equipment> getAvailableEquipment(List<Equipment> allEquipment, List<Reservation> reservations, LocalDateTime startTime, LocalDateTime endTime)
+    {
+        List<Equipment> avaiableEquipment = new ArrayList<>();
+        for (Equipment equipment : allEquipment) {
+            boolean isAvailable = isEquipmentAvailable(equipment, startTime, endTime, reservations);
+            if (isAvailable) {
+                avaiableEquipment.add(equipment);
+            }
+        }
+        return avaiableEquipment;
     }
 }

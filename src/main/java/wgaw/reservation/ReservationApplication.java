@@ -41,6 +41,28 @@ public class ReservationApplication {
         System.out.println(ski2.getDetails());
         System.out.println(snowboard1.getDetails());
 
+        System.out.println();
+
+        List<Equipment> allEquipment = new ArrayList<>();
+        allEquipment.add(ski1);
+        allEquipment.add(ski2);
+        allEquipment.add(snowboard1);
+
+        List<Reservation> reservations = new ArrayList<>();
+        LocalDateTime checkStartTime = LocalDateTime.now();
+        LocalDateTime checkEndTime = checkStartTime.plusDays(3).plusHours(2);
+
+        List<Equipment> availableEquipment = Reservation.getAvailableEquipment(allEquipment, reservations,checkStartTime, checkEndTime);
+
+        if (!availableEquipment.isEmpty()) {
+            Equipment selectedEquipment = availableEquipment.get(0);
+            Reservation newReservation = new Reservation(selectedEquipment, "woj", checkStartTime, checkEndTime, ReservationStatus.ACTIVE);
+            reservations.add(newReservation);
+            System.out.println("Successfull reservation for: "+ selectedEquipment.getSerialNumber());
+        } else {
+            System.out.println("No equipment available for the specified time.");
+        }
+
         // reservation equipment on two days
         LocalDateTime startTime = LocalDateTime.now().plusDays(1);
         LocalDateTime endTime = LocalDateTime.now().plusDays(3);
@@ -51,7 +73,6 @@ public class ReservationApplication {
         skiReservation1.getDetails();
         snowboardReservation1.getDetails();
 
-        List<Reservation> reservations = new ArrayList<>();
         reservations.add(skiReservation1);
         reservations.add(snowboardReservation1);
         reservations.add(snowboardReservation2);
@@ -60,7 +81,7 @@ public class ReservationApplication {
         skiReservation1.cancel();
 
         // show all reservations
-        System.out.println("All reservations:");
+        System.out.println("\nAll reservations:");
         int index = 1;
         for (Reservation reservation : reservations) {
             System.out.println(index+".:");
@@ -69,7 +90,7 @@ public class ReservationApplication {
         }
 
         // show active reservations
-        System.out.println("Active reservations:");
+        System.out.println("\nActive reservations:");
         List<Reservation> reservationsActive = reservations.stream()
                 .filter(reservation -> reservation.getStatus() == ReservationStatus.ACTIVE)
                 .toList();

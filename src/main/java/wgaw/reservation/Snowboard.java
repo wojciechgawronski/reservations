@@ -10,9 +10,13 @@ public class Snowboard extends Equipment
         this.size = size;
     }
 
+    public String getSize(){
+        return size;
+    }
+
     @Override
     public String getDetails()
     {
-        return "Snowboard Details: , size: "+size;
+        return "Snowboard details: Serial: "+getSerialNumber()+" ,conditions: "+getConditions()+", size: "+ getSize();
     }
 }

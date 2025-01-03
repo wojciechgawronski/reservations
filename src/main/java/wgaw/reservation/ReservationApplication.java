@@ -15,21 +15,21 @@ public class ReservationApplication {
         // Create equipment using a factory
         Equipment ski1 = EquipmentFactory.createEquipment(
             EquipmentType.SKI,
-            "AA11",
+            "ski11",
             "New",
             "M"
         );
 
         Equipment ski2 = EquipmentFactory.createEquipment(
             EquipmentType.SKI,
-                "BB22",
+                "ski22",
                 "Used, Scratched",
                 "Small"
         );
 
         Equipment snowboard1 = EquipmentFactory.createEquipment(
             EquipmentType.SNOWBOARD,
-                "SS11",
+                "snow11",
                 "new",
                 "x-large"
         );

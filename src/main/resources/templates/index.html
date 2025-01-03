@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation</title>
+</head>
+<body>
+
+    <h1>System Rezerwacji Sprzętu Zimowego</h1>
+    <h3 th:text="${message}">Hello!</h3>
+
+    <h2>1. Abstrakcyjna Klasa: Equipment</h2>
+    <p>Reprezentuje ogólne cechy sprzętu, takie jak numer seryjny, stan i typ.</p>
+    <ul>
+        <li><strong>Atrybuty:</strong></li>
+        <ul>
+            <li>serialNumber: String</li>
+            <li>condition: String</li>
+            <li>type: EquipmentType (enum)</li>
+        </ul>
+        <li><strong>Metody:</strong></li>
+        <ul>
+            <li>getDetails(): abstrakcyjna metoda do implementacji szczegółów sprzętu.</li>
+        </ul>
+    </ul>
+
+    <h2>2. Interfejs: Reservable</h2>
+    <p>Definiuje zachowanie dla rezerwacji sprzętu.</p>
+    <ul>
+        <li><strong>Metody:</strong></li>
+        <ul>
+            <li>boolean reserve(String customerName, LocalDateTime start, LocalDateTime end)</li>
+            <li>boolean cancelReservation()</li>
+            <li>boolean isAvailable(LocalDateTime start, LocalDateTime end)</li>
+        </ul>
+    </ul>
+
+    <h2>3. Enum: EquipmentType</h2>
+    <p>Określa typ sprzętu.</p>
+    <ul>
+        <li>SKI</li>
+        <li>SNOWBOARD</li>
+        <li>SKATES</li>
+    </ul>
+
+    <h2>4. Final Class: DatabaseConnection</h2>
+    <p>Wzorzec Singleton, zarządzający połączeniem z bazą danych.</p>
+    <ul>
+        <li><strong>Metody:</strong></li>
+        <ul>
+            <li>getInstance(): zapewnia jedną instancję połączenia.</li>
+            <li>connect() i disconnect().</li>
+        </ul>
+    </ul>
+
+    <h2>5. Dziedziczenie: Klasy Sprzętu</h2>
+    <p>Klasy, które dziedziczą po klasie Equipment, np. Ski i Snowboard.</p>
+    <ul>
+        <li><strong>Przykład: Klasa Ski</strong></li>
+        <ul>
+            <li>Dodaje specyficzne cechy, np. długość nart.</li>
+        </ul>
+    </ul>
+
+    <h2>6. Klasa: Reservation</h2>
+    <p>Obsługuje informacje o rezerwacji.</p>
+    <ul>
+        <li><strong>Atrybuty:</strong></li>
+        <ul>
+            <li>equipment: Equipment</li>
+            <li>customerName: String</li>
+            <li>status: ReservationStatus (enum)</li>
+            <li>start i end: LocalDateTime</li>
+        </ul>
+    </ul>
+
+    <h2>7. Enum: ReservationStatus</h2>
+    <p>Status rezerwacji:</p>
+    <ul>
+        <li>ACTIVE</li>
+        <li>CANCELLED</li>
+        <li>COMPLETED</li>
+    </ul>
+
+    <h2>8. Klasa: ReservationManager</h2>
+    <p>Zarządza rezerwacjami i ich stanem.</p>
+    <ul>
+        <li><strong>Metody:</strong></li>
+        <ul>
+            <li>createReservation(Equipment equipment, String customerName, LocalDateTime start, LocalDateTime end)</li>
+            <li>cancelReservation(Reservation reservation)</li>
+            <li>getActiveReservations()</li>
+        </ul>
+    </ul>
+
+    <h2>9. Klasa: Main</h2>
+    <p>Testuje system, symulując procesy rezerwacji, anulowania i zwrotu.</p>
+
+    <h2>10. Testy Jednostkowe</h2>
+    <ul>
+        <li>Testowanie metod: reserve() i cancelReservation() (czy zmieniają stan poprawnie).</li>
+        <li>Testowanie EquipmentFactory.createEquipment() (czy tworzy odpowiedni typ sprzętu).</li>
+        <li>Testowanie ReservationManager.getActiveReservations().</li>
+    </ul>
+
+    <h2>11. Scenariusz Testowy w Main</h2>
+    <ul>
+        <li>Stwórz sprzęt za pomocą fabryki.</li>
+        <li>Zarezerwuj sprzęt na określony czas.</li>
+        <li>Wyświetl aktywne rezerwacje.</li>
+        <li>Anuluj jedną z rezerwacji.</li>
+        <li>Sprawdź dostępność sprzętu.</li>
+    </ul>
+
+</body>
+</html>

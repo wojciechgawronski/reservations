@@ -1,5 +1,9 @@
 # The project
 
+```
+mvp, database: (postgres), views (thymeleaf), unit tests, etc:
+```
+
 ### Requirements
 - required at least 10 classes/interfaces/enums
 - must have abstract class, interface, enum, final class
@@ -124,7 +128,3 @@ sudo systemctl restart postgresql
 sudo apt install postgresql-client
 psql -h localhost -U user -d db
 ```
-
-Testy jednostkowe: Testowanie metod rezerwacji, anulowania i poprawności danych
-reserve() i cancelReservation() (czy zmieniają stan poprawnie).
-EquipmentFactory.createEquipment() (czy tworzy odpowiedni typ sprzętu).

@@ -1,6 +1,9 @@
-package wgaw.reservation;
+package wgaw.reservation.model;
 
-public class Skates extends Equipment{
+import wgaw.reservation.Equipment;
+import wgaw.reservation.EquipmentType;
+
+public class Skates extends Equipment {
     private String size;
 
     public Skates(String serialNumber, String conditions, EquipmentType type, String size)

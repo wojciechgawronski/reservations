@@ -1,10 +1,12 @@
-package wgaw.reservation;
+package wgaw.reservation.model;
 
 import jakarta.persistence.*;
+import wgaw.reservation.Equipment;
+import wgaw.reservation.EquipmentType;
 
 @Entity
 @Table(name = "ski")
-public class Ski extends Equipment  {
+public class Ski extends Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -2,6 +2,7 @@ package wgaw.reservation;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import wgaw.reservation.model.Ski;
 import wgaw.reservation.repository.SkiRepository;
 
 @Component

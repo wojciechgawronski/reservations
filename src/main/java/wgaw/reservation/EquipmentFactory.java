@@ -1,5 +1,9 @@
 package wgaw.reservation;
 
+import wgaw.reservation.model.Skates;
+import wgaw.reservation.model.Ski;
+import wgaw.reservation.model.Snowboard;
+
 public class EquipmentFactory {
     public static Equipment createEquipment(
             EquipmentType type,

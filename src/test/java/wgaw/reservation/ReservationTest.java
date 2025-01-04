@@ -2,6 +2,9 @@ package wgaw.reservation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import wgaw.reservation.model.Skates;
+import wgaw.reservation.model.Ski;
+import wgaw.reservation.model.Snowboard;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

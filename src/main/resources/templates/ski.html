@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ski List</title>
+</head>
+<body>
+    <div th:replace="fragments :: nav"></div>
+    <h1>List of Skis</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Conditions</th>
+            <th>Size</th>
+            <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ski : ${ski}">
+            <td th:text="${ski.serialNumber}"></td>
+            <td th:text="${ski.conditions}"></td>
+            <td th:text="${ski.size}"></td>
+            <td th:text="${ski.equipmentType}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

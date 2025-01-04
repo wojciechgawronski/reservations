@@ -23,6 +23,14 @@ public class Ski extends Equipment {
     @Column(name = "serial_number")
     private String serialNumber;
 
+    // Konstruktor bezargumentowy (wymagany przez Hibernate)
+    public Ski() {
+        super("", "", EquipmentType.SKI); // Wywołanie konstruktora klasy nadrzędnej
+        this.size = "";
+        this.conditions = "";
+        this.equipmentType = EquipmentType.SKI;
+    }
+
     public Ski(String serialNumber,
                String conditions,
                EquipmentType equipmentType,

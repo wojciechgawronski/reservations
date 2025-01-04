@@ -20,6 +20,9 @@ public class Ski extends Equipment {
     @Enumerated(EnumType.STRING)
     private EquipmentType equipmentType;
 
+    @Override
+    public String getSerialNumber() { return serialNumber; }
+
     @Column(name = "serial_number")
     private String serialNumber;
 
@@ -47,8 +50,13 @@ public class Ski extends Equipment {
         return size;
     }
 
+    public Long getId() { return id; }
+
     @Override
     public String getDetails() {
         return "Ski details: Serial: "+getSerialNumber()+" ,conditions: "+getConditions()+", size: "+getSize();
     }
+
+    @Override
+    public String getConditions() { return conditions; }
 }

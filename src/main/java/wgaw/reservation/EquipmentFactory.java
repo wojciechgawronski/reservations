@@ -16,6 +16,10 @@ public class EquipmentFactory {
                 return new Snowboard(serialNumber, condition, EquipmentType.SNOWBOARD, size);
             }
 
+            case SKATES -> {
+                return new Skates(serialNumber, condition, EquipmentType.SKATES, size);
+            }
+
             default -> throw new IllegalArgumentException("Unsupported equipment type: " + type);
         }
     }

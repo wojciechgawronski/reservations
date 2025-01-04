@@ -1,4 +1,11 @@
 ```bash
+mvn test;
+mvn -Dtest=ReservationTest test;
+mvn -Dtest=ReservationTest#testGetAllReservations test
+
+```
+
+```bash
 sudo systemctl start postgresql
 sudo -i -u postgres;  
 psql;  # konsola postgres

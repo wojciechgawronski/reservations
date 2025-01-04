@@ -54,6 +54,10 @@ public class Reservation {
         );
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
     public void cancel() {
         this.status = ReservationStatus.CANCELLED;
     }

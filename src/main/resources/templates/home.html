@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <div th:replace="fragments :: nav"></div>
+
+    <main>
+        <h2 th:text="${message}">Tutaj pojawi się wiadomość z controllera</h2>
+        <p>This is the home page content.</p>
+    </main>
+
+    <div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

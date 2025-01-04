@@ -5,6 +5,8 @@
 </head>
 <body>
 
+    <div th:replace="fragments :: nav"></div>
+
     <h1>System Rezerwacji Sprzętu Zimowego</h1>
     <h3 th:text="${message}">Hello!</h3>
 
@@ -110,6 +112,8 @@
         <li>Anuluj jedną z rezerwacji.</li>
         <li>Sprawdź dostępność sprzętu.</li>
     </ul>
+
+    <div th:replace="fragments :: footer"></div>
 
 </body>
 </html>

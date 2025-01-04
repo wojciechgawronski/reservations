@@ -11,12 +11,18 @@ public class StaticViewController {
     public String index(Model model)
     {
         model.addAttribute("message", "Welcome to the Reservation Application");
-        return "index";
+        return "home";
     }
 
     @GetMapping("/about")
     public String about()
     {
         return "about";
+    }
+
+    @GetMapping("/info")
+    public String index()
+    {
+        return "info";
     }
 }

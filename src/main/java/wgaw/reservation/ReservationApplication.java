@@ -2,11 +2,11 @@ package wgaw.reservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import wgaw.reservation.model.Equipment;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class ReservationApplication {

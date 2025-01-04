@@ -1,5 +1,6 @@
 package wgaw.reservation;
 
+import wgaw.reservation.model.Equipment;
 import wgaw.reservation.model.Skates;
 import wgaw.reservation.model.Ski;
 import wgaw.reservation.model.Snowboard;

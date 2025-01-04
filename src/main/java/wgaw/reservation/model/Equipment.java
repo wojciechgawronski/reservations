@@ -1,4 +1,6 @@
-package wgaw.reservation;
+package wgaw.reservation.model;
+
+import wgaw.reservation.EquipmentType;
 
 public abstract class Equipment {
     private final String serialNumber;

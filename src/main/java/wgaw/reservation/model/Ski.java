@@ -1,7 +1,6 @@
 package wgaw.reservation.model;
 
 import jakarta.persistence.*;
-import wgaw.reservation.Equipment;
 import wgaw.reservation.EquipmentType;
 
 @Entity

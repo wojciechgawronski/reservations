@@ -1,6 +1,5 @@
 package wgaw.reservation.model;
 
-import wgaw.reservation.Equipment;
 import wgaw.reservation.EquipmentType;
 
 public class Snowboard extends Equipment

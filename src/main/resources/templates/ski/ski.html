@@ -5,23 +5,34 @@
 </head>
 <body>
     <div th:replace="fragments :: nav"></div>
+    <div>
+        <a href="/ski/new">ski-new</a>
+    </div>
     <h1>List of Skis</h1>
 
     <table border="1">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Serial Number</th>
             <th>Conditions</th>
             <th>Size</th>
             <th>Type</th>
+            <th>actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="ski : ${ski}">
+            <td th:text="${ski.id}"></td>
             <td th:text="${ski.serialNumber}"></td>
             <td th:text="${ski.conditions}"></td>
             <td th:text="${ski.size}"></td>
             <td th:text="${ski.equipmentType}"></td>
+            <td>
+                <a th:href="@{/ski/edit/{id}(id=${ski.id})}">Edit</a>
+                <a th:href="@{/ski/delete/{id}(id=${ski.id})}"
+                    onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

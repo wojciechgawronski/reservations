@@ -34,6 +34,18 @@ public class Ski extends Equipment {
         this.equipmentType = EquipmentType.SKI;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setConditions(String conditions) {
+        this.conditions = conditions;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
     public Ski(String serialNumber,
                String conditions,
                EquipmentType equipmentType,

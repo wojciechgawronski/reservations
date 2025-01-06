@@ -2,6 +2,7 @@
 
 ```
 mvp, database: (postgres), views (thymeleaf), unit tests, etc:
+design pattern: factory method, repository pattern 
 ```
 
 ### Requirements

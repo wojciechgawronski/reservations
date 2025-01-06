@@ -2,6 +2,8 @@ package wgaw.reservation.model;
 
 import jakarta.persistence.*;
 import wgaw.reservation.EquipmentType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "ski")
@@ -11,9 +13,12 @@ public class Ski extends Equipment {
     private Long id;
 
     @Column(name = "size")
+    @NotBlank(message = "Size cannot be empty")
     private String size;
 
     @Column(name = "conditions")
+    @NotBlank(message = "Conditions cannot be empty")
+    @Size(min = 2, message = "Conditions must be at least 2 characters")
     private String conditions;
 
     @Column(name = "equipment_type")
@@ -24,6 +29,8 @@ public class Ski extends Equipment {
     public String getSerialNumber() { return serialNumber; }
 
     @Column(name = "serial_number")
+    @NotBlank(message = "Serial number cannot be empty")
+    @Size(min = 2, message = "Serial number must be at least 2 characters")
     private String serialNumber;
 
     // Konstruktor bezargumentowy (wymagany przez Hibernate)

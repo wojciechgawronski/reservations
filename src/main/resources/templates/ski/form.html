@@ -14,14 +14,20 @@
         <div class="mb-3">
             <label class="form-label">Serial number:</label>
             <input name="serialNumber" th:field="*{serialNumber}" class="form-control" type="text" />
+            <div class="text-danger" th:if="${#fields.hasErrors('serialNumber')}"
+                 th:errors="*{serialNumber}"></div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="conditions">Conditions</label>
             <input name="conditions" th:field="*{conditions}" id="conditions" class="form-control" type="text" />
+            <div class="text-danger" th:if="${#fields.hasErrors('conditions')}"
+                 th:errors="*{conditions}"></div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="size">Size</label>
             <input name="size" th:field="*{size}" class="form-control" id="size" type="text" />
+            <div class="text-danger" th:if="${#fields.hasErrors('size')}"
+                 th:errors="*{size}"></div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="type">Type</label>

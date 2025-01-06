@@ -1,7 +1,9 @@
 package wgaw.reservation.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import wgaw.reservation.model.Ski;
 import wgaw.reservation.repository.SkiRepository;
@@ -24,7 +26,10 @@ public class SkiController {
     }
 
     @PostMapping("/ski")
-    public String saveSki(@ModelAttribute("ski") Ski ski) {
+    public String saveSki(@Valid @ModelAttribute("ski") Ski ski, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "ski/form";
+        }
         skiRepository.save(ski);
         return "redirect:/ski";
     }
